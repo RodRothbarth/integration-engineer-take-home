@@ -50,3 +50,8 @@ Regards,
 The Duda Solutions Engineering Team
 
 ## Add any instructions to get your submission running below this line.
+### Backend Prop
+- Install the inicial libraries for node_modules creation - "npm i"
+- Installing nodemon - "npm i -D nodemon" gives you a better development experience.
+- Generating a package script for starting the application properly '"start": "nodemon index.js"'
+- The organization for better controll start in the "modules" folder. 

@@ -1,24 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const taskRoutes = require("./modules/TaskModule/taskRoutes");
+const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 
-let tasks = [];
-let nextTaskId = 1;
+//for cors implementation insert cross-origin requests from known source
+app.use(cors({origin:'*',
+  credentials: true
+}))
 
-app.get('/tasks', (req, res) => {
-  res.json(tasks);
-});
-
-app.post('/tasks', (req, res) => {
-});
-
-
-app.delete('/tasks/:id', (req, res) => {
-});
+// using app.use for cleaner approach
+app.use('/tasks', taskRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
