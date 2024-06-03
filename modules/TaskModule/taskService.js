@@ -10,7 +10,7 @@ module.exports = class TaskService {
         task.id = nextId
         nextId++
         tasks.push(task)
-        return tasks
+        return task
     }
 
     deleteTask = (taskId)=>{
