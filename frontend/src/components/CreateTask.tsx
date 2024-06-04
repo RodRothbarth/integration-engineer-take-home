@@ -3,6 +3,7 @@ import {AxiosResponse} from "axios";
 import {Task} from "../types.ts";
 import {http} from "../http/httpCalls.ts";
 import {useTask} from "../customHooks/useTask.tsx";
+import {toast} from "react-toastify";
 
 type CreateTask = {
     id?: number
@@ -28,26 +29,38 @@ export default function CreateTask({id, onFinishEdit}: CreateTask) {
     }
 
     const createTask = async (data: FieldValues) => {
-        const newTask: AxiosResponse<Task> = await http.post("/tasks", data)
-        setTasks(prevState => [...prevState, newTask.data])
-        reset()
+        try{
+            const newTask: AxiosResponse<Task> = await http.post("/tasks", data)
+            setTasks(prevState => [...prevState, newTask.data])
+            reset()
+        }catch (e:any) {
+            toast.error(
+                e.message
+            );
+        }
     }
 
     const updateTask = async (data: FieldValues, id: number) => {
-        const newTask: AxiosResponse<Task> = await http.put(`/tasks/${id}`, data)
-        setTasks((prevState: Task[]) => {
-            return prevState.map((task: Task) => {
-                if (task.id === id) {
-                    return {...newTask.data, id}
-                } else {
-                    return task
-                }
-            })
-        })
-        if (onFinishEdit) {
-            onFinishEdit()
-        }
-        reset()
+       try{
+           const newTask: AxiosResponse<Task> = await http.put(`/tasks/${id}`, data)
+           setTasks((prevState: Task[]) => {
+               return prevState.map((task: Task) => {
+                   if (task.id === id) {
+                       return {...newTask.data, id}
+                   } else {
+                       return task
+                   }
+               })
+           })
+           if (onFinishEdit) {
+               onFinishEdit()
+           }
+           reset()
+       }catch (e: any) {
+           toast.error(
+               e.message
+           );
+       }
     }
 
     return (

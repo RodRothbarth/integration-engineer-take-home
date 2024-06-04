@@ -50,11 +50,25 @@ Regards,
 The Duda Solutions Engineering Team
 
 ## Add any instructions to get your submission running below this line.
+
+### First look
+The project was build in a single build, the division is set on frontend folder.
+Remember to access the correct folder "frontend" to install the first dependencies;
+In the project core are the folders and files for the backend
+
 ### Backend Prep
 - Install the inicial libraries for node_modules creation - "npm i"
 - Installing nodemon - "npm i -D nodemon" gives you a better development experience.
 - Generating a package script for starting the application properly '"start": "nodemon index.js"'
-- The organization for better controll start in the "modules" folder. 
+- The organization for better control start in the "modules" folder.
+- in the modules folder "routes" sets the endpoint routes end its HTTP;
+- "controller" handles the primary entry point for the data;
+- "service" handles the logic itself
+- cors is set for the internal "vite localhost port" make sure ir reflect yours.
 
 ### Frontend Prep
-- install axios for http calls standards
+- Install the inicial libraries for node_modules creation on "frontend" folder - "npm i"
+- Remember to create TSX file once the project is in typescript.
+- Task data is handled by a context "useTask".
+- 
+

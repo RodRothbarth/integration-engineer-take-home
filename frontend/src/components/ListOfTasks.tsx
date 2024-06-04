@@ -2,6 +2,7 @@ import {http} from "../http/httpCalls.ts";
 import {useTask} from "../customHooks/useTask.tsx";
 import {useState} from "react";
 import CreateTask from "./CreateTask.tsx";
+import {toast} from "react-toastify";
 
 export default function ListOfTasks() {
 const {setTasks, tasks} = useTask()
@@ -12,8 +13,12 @@ const {setTasks, tasks} = useTask()
         try {
             await http.delete(`/tasks/${id}`)
             setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
-        } catch (e) {
-            console.log(e)
+        } catch (e:any) {
+
+            console.log(e.message)
+            toast.error(
+                e.message
+            );
         }
     };
 
