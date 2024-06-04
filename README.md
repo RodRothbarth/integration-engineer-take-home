@@ -57,9 +57,9 @@ Remember to access the correct folder "frontend" to install the first dependenci
 In the project core are the folders and files for the backend
 
 ### Backend Prep
-- Install the inicial libraries for node_modules creation - "npm i"
-- Installing nodemon - "npm i -D nodemon" gives you a better development experience.
-- Generating a package script for starting the application properly '"start": "nodemon index.js"'
+- Install the initial libraries for node_modules creation  bash```"npm install"```
+- Installing nodemon - bash```"npm i -D nodemon"``` gives you a better development experience.
+- Generating a package script for starting the application properly bash```"start": "nodemon index.js"```
 - The organization for better control start in the "modules" folder.
 - in the modules folder "routes" sets the endpoint routes end its HTTP;
 - "controller" handles the primary entry point for the data;
@@ -67,8 +67,9 @@ In the project core are the folders and files for the backend
 - cors is set for the internal "vite localhost port" make sure ir reflect yours.
 
 ### Frontend Prep
-- Install the initial libraries for node_modules creation on "frontend" folder - "npm i"
+- Install the initial libraries for node_modules creation on "frontend" folder - bash```"npm install"```
 - Remember to create TSX file once the project is in typescript.
-- Task data is handled by a context "useTask".
+- Task data is handled by a context bash```"useTask"```.
 - a toaster was implemented to show basic error handling
+- for handling forms was implemented bash```react-hook-form```
 
