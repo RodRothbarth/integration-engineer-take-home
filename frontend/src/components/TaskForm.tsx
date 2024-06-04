@@ -116,7 +116,7 @@ export default function TaskForm({id, onFinishEdit}: TaskForm) {
                                <span style={{color:"red"}}>{`${errors.description.message}`}</span>
                            )}
                        </div>
-                       <button style={{height:"3rem", backgroundColor:"green"}} disabled={isSubmitting}>{id ? "Edit" : "Create"}</button>
+                       <button style={{height:"3rem", backgroundColor: id ? "blue":"green"}} disabled={isSubmitting}>{id ? "Edit" : "Create"}</button>
                    </div>
 
                 </form>

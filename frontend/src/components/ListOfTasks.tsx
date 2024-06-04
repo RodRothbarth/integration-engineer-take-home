@@ -35,7 +35,7 @@ const {setTasks, tasks} = useTask()
                      <TaskForm onFinishEdit={()=>setIsEdit(false)} id={id}/>
                  )}
                     {tasks!.map(task => (
-                        <div key={task.id} style={{border:"2px solid #ffffff"}}>
+                        <div key={task.id} style={{border:"2px solid #ffffff", marginTop: "10px"}}>
                                 <div style={{
                                     display:"flex",
                                     alignItems:"center",
