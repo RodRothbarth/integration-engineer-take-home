@@ -35,6 +35,10 @@ module.exports = class TaskService {
     updateTask = (taskId, toUpdateTaskData)=>{
         const numberId = parseInt(taskId)
 
+        if (!this.isValidTask(toUpdateTaskData)) {
+            throw new Error("Invalid task");
+        }
+
         if(!numberId || isNaN(numberId)){
             throw new Error("Invalid task ID");
         }

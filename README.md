@@ -53,7 +53,7 @@ The Duda Solutions Engineering Team
 
 ### First look
 The project was build in a single build, the division is set on frontend folder;
-Remember to access the correct folder "frontend" to install the first dependencies;
+Remember to access the correct folder "frontend" to install the frontend dependencies;
 In the project core are the folders and files for the backend;
 each part "front and back"end were organized for single purpose.
 
