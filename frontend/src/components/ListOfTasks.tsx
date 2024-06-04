@@ -14,9 +14,10 @@ const {setTasks, tasks} = useTask()
         try {
             await http.delete(`/tasks/${id}`)
             setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
+            toast.success(
+                "Task deleted"
+            )
         } catch (e:any) {
-
-            console.log(e.message)
             toast.error(
                 e.message
             );

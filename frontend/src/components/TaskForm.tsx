@@ -32,6 +32,9 @@ export default function TaskForm({editTask, onFinishEdit}: TaskForm) {
         try{
             const newTask: AxiosResponse<Task> = await http.post("/tasks", data)
             setTasks(prevState => [...prevState, newTask.data])
+            toast.success(
+                "Task created"
+            )
             reset()
         }catch (e:any) {
             toast.error(
@@ -55,6 +58,9 @@ export default function TaskForm({editTask, onFinishEdit}: TaskForm) {
            if (onFinishEdit) {
                onFinishEdit()
            }
+           toast.success(
+               "Task edited"
+           )
            reset()
        }catch (e: any) {
            toast.error(
