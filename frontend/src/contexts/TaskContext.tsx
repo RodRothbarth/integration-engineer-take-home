@@ -3,7 +3,6 @@ import {Task} from "../types.ts";
 import {AxiosResponse} from "axios";
 import {http} from "../http/httpCalls.ts";
 
-
 type TaskContextDataProp = {
     tasks:  Task[] | null;
     setTasks: React.Dispatch<React.SetStateAction<Task[]>>;

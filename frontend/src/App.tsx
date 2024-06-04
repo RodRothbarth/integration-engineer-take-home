@@ -4,12 +4,10 @@ import {TaskContextProvider} from "./contexts/TaskContext.tsx";
 
 function App() {
     return (
-        <div>
             <TaskContextProvider>
                 <CreateTask/>
                 <ListOfTasks/>
             </TaskContextProvider>
-        </div>
     );
 }
 
