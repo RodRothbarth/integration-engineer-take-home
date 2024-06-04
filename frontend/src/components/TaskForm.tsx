@@ -6,25 +6,25 @@ import {useTask} from "../customHooks/useTask.tsx";
 import {toast} from "react-toastify";
 
 type TaskForm = {
-    id?: number
+    editTask?: Task
     onFinishEdit?: () => void
 }
 
-export default function TaskForm({id, onFinishEdit}: TaskForm) {
+export default function TaskForm({editTask, onFinishEdit}: TaskForm) {
     const {
         register,
         handleSubmit,
         formState: {errors, isSubmitting},
         reset
-    } = useForm()
+    } = useForm({defaultValues: {"title": editTask?.title, "description": editTask?.description}})
 
     const {setTasks} = useTask()
 
     const onSubmit = async (data: FieldValues) => {
-        if (!id) {
+        if (!editTask) {
             await createTask(data)
         } else {
-            await updateTask(data, id)
+            await updateTask(data, editTask.id)
         }
     }
 
@@ -67,7 +67,7 @@ export default function TaskForm({id, onFinishEdit}: TaskForm) {
         <>
             <div >
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h2>{id ? "Edit Task" : "Create Task"}</h2>
+                    <h2>{editTask ? "Edit Task" : "Create Task"}</h2>
                    <div style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                        <div style={{display:"flex", flexDirection:"column"}}>
                            <input
@@ -116,7 +116,7 @@ export default function TaskForm({id, onFinishEdit}: TaskForm) {
                                <span style={{color:"red"}}>{`${errors.description.message}`}</span>
                            )}
                        </div>
-                       <button style={{height:"3rem", backgroundColor: id ? "blue":"green"}} disabled={isSubmitting}>{id ? "Edit" : "Create"}</button>
+                       <button style={{height:"3rem", backgroundColor: editTask ? "blue":"green"}} disabled={isSubmitting}>{editTask ? "Edit" : "Create"}</button>
                    </div>
 
                 </form>
