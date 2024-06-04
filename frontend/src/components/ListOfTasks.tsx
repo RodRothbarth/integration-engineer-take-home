@@ -1,7 +1,7 @@
 import {http} from "../http/httpCalls.ts";
 import {useTask} from "../customHooks/useTask.tsx";
 import {useState} from "react";
-import CreateTask from "./CreateTask.tsx";
+import TaskForm from "./TaskForm.tsx";
 import {toast} from "react-toastify";
 
 export default function ListOfTasks() {
@@ -32,9 +32,8 @@ const {setTasks, tasks} = useTask()
         <>
             <h1>Task Management App</h1>
                  {isEdit && (
-                     <CreateTask onFinishEdit={()=>setIsEdit(false)} id={id}/>
+                     <TaskForm onFinishEdit={()=>setIsEdit(false)} id={id}/>
                  )}
-
                     {tasks!.map(task => (
                         <div key={task.id} style={{border:"2px solid #ffffff"}}>
                                 <div style={{

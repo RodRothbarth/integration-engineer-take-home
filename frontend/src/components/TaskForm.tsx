@@ -5,12 +5,12 @@ import {http} from "../http/httpCalls.ts";
 import {useTask} from "../customHooks/useTask.tsx";
 import {toast} from "react-toastify";
 
-type CreateTask = {
+type TaskForm = {
     id?: number
     onFinishEdit?: () => void
 }
 
-export default function CreateTask({id, onFinishEdit}: CreateTask) {
+export default function TaskForm({id, onFinishEdit}: TaskForm) {
     const {
         register,
         handleSubmit,

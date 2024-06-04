@@ -67,8 +67,8 @@ In the project core are the folders and files for the backend
 - cors is set for the internal "vite localhost port" make sure ir reflect yours.
 
 ### Frontend Prep
-- Install the inicial libraries for node_modules creation on "frontend" folder - "npm i"
+- Install the initial libraries for node_modules creation on "frontend" folder - "npm i"
 - Remember to create TSX file once the project is in typescript.
 - Task data is handled by a context "useTask".
-- 
+- a toaster was implemented to show basic error handling
 
