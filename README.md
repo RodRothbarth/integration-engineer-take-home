@@ -54,8 +54,9 @@ The Duda Solutions Engineering Team
 ### First look
 The project was build in a single build, the division is set on frontend folder;
 Remember to access the correct folder "frontend" to install the frontend dependencies;
+For backand installation remember to be in the proper folder as well;
 In the project core are the folders and files for the backend;
-each part "front and back"end were organized for single purpose.
+each part "front and back"end were organized for single purpose package. 
 
 ### Backend Prep
 - Install the initial libraries for node_modules creation  bash```"npm install"```;
