@@ -1,4 +1,3 @@
-
 tasks = [];
 nextId = 1;
 module.exports = class TaskService {
@@ -7,6 +6,10 @@ module.exports = class TaskService {
         return tasks}
 
     addTask = (task)=>{
+        if (!this.isValidTask(task)) {
+            throw new Error("Invalid task");
+        }
+
         task.id = nextId
         nextId++
         tasks.push(task)
@@ -15,23 +18,39 @@ module.exports = class TaskService {
 
     deleteTask = (taskId)=>{
         const idToDelete = parseInt(taskId)
-       tasks = tasks.filter(task => task.id !== idToDelete)
+        if (!idToDelete || isNaN(idToDelete)) {
+            throw new Error("Invalid task ID");
+        }
+        const indexToDelete = tasks.findIndex(task => task.id === idToDelete);
+
+        if (indexToDelete === -1) {
+            throw new Error("Task not found");
+        }
+
+        tasks.splice(indexToDelete, 1);
+
         return tasks
     }
 
     updateTask = (taskId, toUpdateTaskData)=>{
-        console.log(tasks)
         const numberId = parseInt(taskId)
 
+        if(!numberId || isNaN(numberId)){
+            throw new Error("Invalid task ID");
+        }
+
         const indexToUpdate = tasks.findIndex(task => task.id === numberId)
-        if(indexToUpdate !== -1){
+        if(indexToUpdate === -1){
+            throw Error("Task not found")
+        }else{
             tasks[indexToUpdate] = { ...toUpdateTaskData, id: numberId };
 
-            return "ok";
-        }else{
-            console.log("deu ruim")
-            return "deu ruims"
+            return tasks[indexToUpdate];
         }
     }
+
+    isValidTask = (task) => {
+        return task && task.title && task.description;
+    };
 
 }
